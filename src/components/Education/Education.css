@@ -1,0 +1,138 @@
+.education__accordion {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.education-item {
+  margin: 0 auto;
+  width: 100%;
+  border: 1px solid var(--clr-primary);
+  border-radius: 0.8em;
+  background: var(--clr-bg-alt);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.2s linear, box-shadow 0.2s linear;
+}
+
+.education-item:hover {
+  transform: translateY(-4px);
+}
+
+.education-item.is-open {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 10px 22px;
+}
+
+.education-item__title {
+  margin: 0;
+}
+
+.education-item__trigger {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--clr-fg);
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1em;
+  align-items: center;
+  text-align: left;
+  padding: 1.2em 1.4em;
+  cursor: pointer;
+}
+
+.education-item__trigger:focus-visible {
+  outline: 2px solid var(--clr-primary);
+  outline-offset: -2px;
+}
+
+.education-item__institution {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.education-item__university {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+
+.education-item__years {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--clr-fg-alt);
+}
+
+.education-item__icon {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.education-item.is-open .education-item__icon {
+  transform: rotate(180deg);
+}
+
+.education-item__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.education-item.is-open .education-item__panel {
+  grid-template-rows: 1fr;
+}
+
+.education-item__panel-inner {
+  overflow: hidden;
+  padding: 0 1.4em;
+}
+
+.education-item.is-open .education-item__panel-inner {
+  padding: 0.2em 1.4em 1.2em;
+}
+
+.education-item__program,
+.education-item__location {
+  margin: 0.6em 0;
+}
+
+.education-item__highlights {
+  margin: 0.75em 0 0;
+  padding-left: 1.2em;
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.education-item__highlight {
+  color: var(--clr-fg-alt);
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 600px) {
+  .education-item__trigger {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'institution icon'
+      'university university'
+      'years years';
+  }
+
+  .education-item__institution {
+    grid-area: institution;
+  }
+
+  .education-item__university {
+    grid-area: university;
+  }
+
+  .education-item__years {
+    grid-area: years;
+  }
+
+  .education-item__icon {
+    grid-area: icon;
+    justify-self: end;
+  }
+}

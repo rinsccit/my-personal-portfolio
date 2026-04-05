@@ -1,0 +1,119 @@
+.experience-item {
+  margin: 0 auto;
+  width: 100%;
+  border: 1px solid var(--clr-primary);
+  border-radius: 0.8em;
+  background: var(--clr-bg-alt);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.2s linear, box-shadow 0.2s linear;
+}
+
+.experience-item:hover {
+  transform: translateY(-4px);
+}
+
+.experience-item.is-open {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 10px 22px;
+}
+
+.experience-item__title {
+  margin: 0;
+}
+
+.experience-item__trigger {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--clr-fg);
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1em;
+  align-items: center;
+  text-align: left;
+  padding: 1.2em 1.4em;
+  cursor: pointer;
+}
+
+.experience-item__trigger:focus-visible {
+  outline: 2px solid var(--clr-primary);
+  outline-offset: -2px;
+}
+
+.experience-item__company {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.experience-item__years {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--clr-fg-alt);
+}
+
+.experience-item__icon {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.experience-item.is-open .experience-item__icon {
+  transform: rotate(180deg);
+}
+
+.experience-item__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.experience-item.is-open .experience-item__panel {
+  grid-template-rows: 1fr;
+}
+
+.experience-item__panel-inner {
+  overflow: hidden;
+  padding: 0 1.4em;
+}
+
+.experience-item.is-open .experience-item__panel-inner {
+  padding: 0.2em 1.4em 1.2em;
+}
+
+.experience-item__role,
+.experience-item__location {
+  margin: 0.6em 0;
+}
+
+.experience-item__details {
+  margin: 0.75em 0 0;
+  padding-left: 1.2em;
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.experience-item__detail {
+  margin-bottom: 0.5em;
+  color: var(--clr-fg-alt);
+}
+
+@media (max-width: 600px) {
+  .experience-item__trigger {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'company icon'
+      'years years';
+  }
+
+  .experience-item__company {
+    grid-area: company;
+  }
+
+  .experience-item__years {
+    grid-area: years;
+  }
+
+  .experience-item__icon {
+    grid-area: icon;
+    justify-self: end;
+  }
+}

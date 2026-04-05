@@ -1,0 +1,14 @@
+.contact {
+  flex-direction: column;
+}
+
+.link-primary {
+  color: blue;;
+  text-decoration: underline;
+}
+
+.or {
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
